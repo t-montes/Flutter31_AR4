@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Blog - Flutter31 Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- t-montes code-viewer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/gh/t-montes/code-viewer@master/versions/1.0.1/code-viewer.min.js"></script>
+
+  <!-- =======================================================
+  * Template Name: Flutter31
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span>Flutter31</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html#hero">Start</a></li>
+          <li class="dropdown"><a href="index.html#appinfo"><span>Overview</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="index.html#appinfo">Blackhole</a></li>
+              <li><a href="index.html#appinfo_functionalities">Functionalities</a></li>
+              <li><a href="index.html#appinfo_value">Value Proposition</a></li>
+              <li><a href="index.html#appinfo_bqs">Business Questions</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="ar2.html"><span>Design</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="ar2.html#architecture">Architecture</a></li>
+              <li><a href="ar2.html#views">App Views</a></li>
+              <li><a href="ar2.html#qas">Quality Attributes</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="ar3.html"><span>Techniques</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="ar3.html#ecns">Eventual Connectivity</a></li>
+              <li><a href="ar3.html#caching">Caching Strategies</a></li>
+              <li><a href="ar3.html#memory">Memory Managment</a></li>
+              <li><a href="ar3.html#threading">Threading</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="ar4.html"><span>Performance</span><i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="ar4.html#scenarios">Performance Scenarios</a></li>
+              <li><a href="ar4.html#problems_strenghts">Problems and Strengths</a></li>
+              <li><a href="ar4.html#uoptimization">Micro Optimization</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="sonar.html">Sonar</a></li>
+          <li><a class="getstarted scrollto" href="https://blackhole-apk.com/">Download</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ar3.html">Techniques</a></li>
+        </ol>
+        <h2>Techniques</h2>
+      </div>
+    </section>
+
+    <!-- ======= Section: Performance ======= -->
+    <section id="ecns" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>ECns</h2>
+          <p>Eventual Connectivity Scenarios</p>
+        </header>
+
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+              <h3>Offline Playlist Management</h3>
+              <h4>Scenario 5</h4>
+              <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  In this scenario, the app misleadingly appears to allow users to create new playlists and add songs to them when no connectivity is available. But the playlists remain empty ...
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/ecn5.png" class="testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+              <h3>Song Preloading</h3>
+              <h4>Scenario 1</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  When a song is played in the app, the music player takes the initiative to preload not only the current second of the song but also a few seconds ahead of it ...
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/ecn1.png" class="testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+              <h3>Song Downloading</h3>
+              <h4>Scenario 2</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Blackhole allows users to proactively download songs when a stable internet connection is available. By downloading songs in advance, users can build their offline music library ...
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/ecn2.png" class="testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+              <h3>Offline Downloaded Reproduction</h3>
+              <h4>Scenario 3</h4>
+              <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  The enables users to access and enjoy their recently played songs even when they have no internet connectivity. By preserving the history of previously played songs and allowing for their offline playback ...
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/ecn3.png" class="testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+              <h3>No-Connectivity Features</h3>
+              <h4>Scenario 4</h4>
+              <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  In various pages, such as “Last session”, “Favorites” and “Stats” the app offers features that remain accessible even when there is no internet connectivity, it also occurrs with some features ...
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/ecn4.png" class="testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+ 
+    <section id="ecn1" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Scenario 1</h2>
+          <p>Song Preloading</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <video id="ecn1Video" loop muted style="width: 100%; height: auto;">
+              <source src="videos/ecn1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-8">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="200">
+              <h3>ECn #1: Load the whole song in advance (with connectivity)</h3>
+              <p>This ECn is demonstrated in scenario #1 and proves to be a valuable enhancement. When a song is played in the app, the music player takes the initiative to preload not only the current second of the song but also a few seconds ahead of it. This behavior is a significant asset, as it enables users to continue enjoying the music for a considerable duration even in scenarios where connectivity may be temporarily interrupted. This feature becomes particularly interesting when users encounter brief connection drops, as it ensures uninterrupted music playback, thereby enhancing the overall user experience. In this way, users can maintain their engagement with the app and its content without frustration or disruption.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>        
+
+    <section id="ecn2" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Scenario 2</h2>
+          <p>Song Downloading</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <video id="ecn2Video" loop muted style="width: 100%; height: auto;">
+              <source src="videos/ecn2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-8">
+            <div class="box-ecns green-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #2: Download a song (with connectivity)</h3>
+              <p>The implementation of ECn 2, as depicted in scenario #2 greatly enhances the app's functionality. This capability allows users to proactively download songs when a stable internet connection is available. The significance of this feature becomes apparent in scenarios where users anticipate future offline periods or want to conserve mobile data. By downloading songs in advance, users can build their offline music library and enjoy their favorite tracks even when they're offline, traveling, or in areas with limited connectivity. This approach empowers users with the freedom to customize their listening experience, offering convenience and flexibility that adapts to various user preferences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ecn3" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Scenario 3</h2>
+          <p>Offline Downloaded Reproduction</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <video id="ecn3Video" loop muted style="width: 100%; height: auto;">
+              <source src="videos/ecn3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-8">
+            <div class="box-ecns green-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #3: Allow last songs reproduction without connectivity</h3>
+              <p>
+                Enjoy your last played songs offline. This key feature lets you keep the music going even when you're not connected to the internet, though it's limited to certain songs due to technical constraints. Your most played tracks are conveniently saved for quick access.
+                <!--ECn 3 is an essential feature that significantly enhances the app's user experience. This functionality enables users to access and enjoy their recently played songs even when they have no internet connectivity. This enhancement caters to the situation where users find themselves in an offline environment or with an intermittent internet connection. By preserving the history of previously played songs and allowing for their offline playback, the app ensures a continuous and uninterrupted music experience.
+                It's important to consider that this ECn only works for a few songs, for most of the songs, the reproduction won't be available or will be bugged as it will be presented in ECn 6.
+                Also, part of this good ECn is that the feed is also available without connectivity, it means that the most reproduced songs are saved in storage or cache for fast accessing.-->
+              </p>
+            </div>
+
+            <div class="box-ecns green-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #4: Reproduce downloaded songs without connectivity</h3>
+              <p>
+                Access your downloaded songs under "Library" anytime, without the need for internet. If no songs are downloaded, we'll guide you with simple instructions on how to get your favorites ready for offline enjoyment. The dedicated offline music player ensures seamless playback.
+                <!--ECn 4, illustrated in scenario #3, is a needed feature as continuation of the ECn 2. The list of the downloaded songs is in the “Library” section of the app, but if the user didn't download any song with connectivity, this feature won't be of any use. A good pattern for this case, when there are no downloaded songs, is to inform the user with a nice UX design.
+                A very good practice in Blackhole is that the music player for downloaded songs is not the same as the one for the rest of the features. The music player for downloaded songs contains less functions, but all the features available on it are also available without connectivity.-->
+              </p>
+            </div>
+
+            <div class="box-ecns red-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #5: No clue of no-connectivity on some pages</h3>
+              <p>
+                Stay informed about your connection. Unlike the "My Music" or search sections that don't signal connection issues, we believe in clear communication. Our aim is to avoid unexpected data charges and confusion, ensuring a transparent and reliable user experience similar to platforms like YouTube.
+                <!--ECn 5, as depicted in scenario #3 in certain sections of the app (like “My music” page or the search bar), presents a critical anti-pattern and poses substantial issues in the user experience. This approach lacks proper notification of connectivity issues and merely relies on the absence of an active connection, leaving users unaware of potential disruptions or failing features.
+                This anti-pattern is problematic for several reasons. Firstly, it fails to provide users with important information about their current network status. Without clear notifications or alerts, users may mistakenly believe that the app is malfunctioning or unresponsive, leading to frustration and confusion. Secondly, it can result in users unknowingly consuming mobile data while trying to load content on pages where connectivity is lacking, potentially leading to unexpected data charges. Additionally, it offers a defficient user experience as users cannot proactively respond to connectivity issues or make informed decisions regarding their app usage.
+                In contrast to this approach, it is advisable to provide explicit notifications or show an advertisement in the app when connectivity is absent, informing users of the lack of internet access, instead of just a progress bar. A clear and user-friendly notification system can help users understand the issue and take appropriate actions, such as connecting to Wi-Fi or enabling mobile data. This doesn't just improve user satisfaction but also helps in managing data usage and maintaining transparency, ultimately enhancing the app's usability and reliability.
+                An example of another good app with a good pattern for this case would be YouTube-->
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="ecn4" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Scenario 4</h2>
+          <p>No-Connectivity Features</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <video id="ecn4Video" loop muted style="width: 100%; height: auto;">
+              <source src="videos/ecn4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-8">
+            <div class="box-ecns red-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #6: Bug when reproducing new song with no connectivity</h3>
+              <p>
+                ECn 6, as observed in scenario #4, represents a significant usability issue within the app. This bug and anti-pattern manifests when users attempt to play a song that is neither recently played nor downloaded, and there is no internet connectivity. The problem here is twofold: not only does the app fail to reproduce the song correctly, but it also neglects to provide any indication of the issue to the user, leaving the music player with the previous song.
+                This is a deeply concerning issue as it results in a frustrating user experience. When users encounter this bug, they may assume that the app is unresponsive or faulty, causing confusion and dissatisfaction. Furthermore, it leaves users in the dark about why the song isn't playing, hindering their ability to take corrective actions.
+                In a user-centric approach, it is imperative to address this bug promptly. The app should not only ensure the proper playback of songs under such conditions but also provide clear error messages or notifications when issues arise. This empowers users to understand and resolve the problem, whether it requires connecting to the internet or taking alternative actions like downloaded songs. By doing so, the app can significantly enhance user satisfaction, maintain its reputation for reliability, and reduce user frustration in scenarios where connectivity is unavailable.
+              </p>
+            </div>
+
+            <div class="box-ecns green-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #7: No-connectivity features on some pages</h3>
+              <p>
+                ECn 7, shown in scenario #4, represents a commendable enhancement within the app's design and functionality. In various pages, such as “Last session”, “Favorites” and “Stats” the app offers features that remain accessible even when there is no internet connectivity, it also occurrs with some features as shown previously in the ECn 4, with the no-connectivity music player. This is a highly beneficial feature that greatly enriches the user experience.
+                This enhancement underscores the app's commitment to delivering a seamless and user-centric experience. By allowing users to access specific features and content regardless of their connectivity status, it ensures that users can continue to engage with the app and enjoy its offerings even in offline or low-connectivity scenarios.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="ecn5" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Scenario 5</h2>
+          <p>Offline Playlist Management</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <video id="ecn5Video" loop muted style="width: 100%; height: auto;">
+              <source src="videos/ecn5.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-8">
+            <div class="box-ecns red-highlight" data-aos="fade-right" data-aos-delay="200">
+              <h3>ECn #8: Bug on playlist management with no-connectivity</h3>
+              <p>
+                ECn 8, as encountered in scenario #5, exposes a bug and issue in the app's playlist management without connectivity. In this scenario, the app misleadingly appears to allow users to create new playlists and add songs to them when no connectivity is available. However, upon later inspection, users discover that the playlists remain empty without any clear indication or error message.
+                This anti-pattern raises significant concerns as it leads to user confusion. Users may believe they have successfully created and customized playlists, as these functions seem to be available even in offline mode, only to be disappointed when they discover that their changes were not saved. 
+                <br>
+                <br>
+                The lack of feedback or notifications further makes the problem worse, as users are left in the dark about the issue and unable to rectify it.
+                In order to improve the user experience, it is crucial to address this bug promptly. The app should either prevent playlist management actions when no connectivity is available or clearly inform users that their actions cannot be completed due to the lack of internet access. This not only prevents user frustration but also ensures that users can confidently manage their playlists, thus enhancing the overall functionality and reliability of the app.
+                Another possible solution for this bug, which would be the best, would be to allow this function, using local storage on the app to save the users actions like “create the playlist”, “add X to the playlist”, etc. Also, when the user has connectivity again, the app has an oportunistic synchronization with the server, to save all the changes made.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-1">
+          <div class="col-lg-10 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="assets/img/logo.png" alt="">
+              <span>Flutter31</span>
+            </a>
+            <p>At Flutter31, we're a team of developers passionate about Flutter mobile applications. Our focus is on creating and analyzing apps like Blackhole, aiming to enhance your digital experience with innovative and user-friendly solutions.</p>
+            <div class="social-links mt-3">
+              <a href="https://github.com/ISIS3510-202320-Team31/Flutter" class="github"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Flutter 31</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var videos = [];
+        for (var i = 1; i <= 5; i++) {
+            videos.push(document.getElementById('ecn' + i + 'Video'));
+        }
+
+        var checkScroll = function() {
+            videos.forEach(function(video) {
+                if (video) {
+                    var rect = video.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('resize', checkScroll);
+
+        checkScroll();
+    });
+  </script>
+
+</body>
+
+</html>
