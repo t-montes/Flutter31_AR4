@@ -154,7 +154,7 @@
                 </p>
                 
                 <div class="code-space">
-                  <code-viewer title="song_item_dart">
+                  <code-viewer title="song_item.dart">
                     import 'dart:convert';
 
                     class SongItem {
@@ -162,7 +162,7 @@
                       final String album;
                       final String? albumId;
                       final List<String> artists;
-                      final List<Map<String, String>>? artistIds;
+                      final List&lt;Map&lt;String, String&gt;&gt;? artistIds;
                       final String? albumArtist;
                       final Duration duration;
                       final String genre;
@@ -174,7 +174,7 @@
                       final String? subtitle;
                       final String title;
                       final String? url;
-                      final List<String> allUrls;
+                      final List&lt;String&gt; allUrls;
                       final int? year;
                       final int? quality; }
                   </code-viewer>
@@ -205,7 +205,7 @@
                               BuildContext context,
                               bool innerBoxScrolled,
                             ) {
-                              return <Widget>[
+                              return &lt;Widget&gt;[
                                 SliverAppBar(
                                   expandedHeight: 135,
                                   backgroundColor: Colors.transparent,
@@ -235,7 +235,7 @@
               
               <div class="code-space" style="display: flex; align-items: center;">
                 <code-viewer title="download.dart">
-                  Future<void> downloadSong(
+                  Future&lt;void&gt; downloadSong(
                     BuildContext context,
                     String? dlPath,
                     String fileName,
@@ -247,7 +247,7 @@
                     String? filepath;
                     late String filepath2;
                     String? appPath;
-                    final List<int> bytes = [];
+                    final List&lt;int&gt; bytes = [];
                     String lyrics = '';
                     final artname = fileName.replaceAll('.m4a', '.jpg');
                     if (!Platform.isWindows) {
@@ -261,7 +261,7 @@
                 </code-viewer>
                 <code-viewer title="download.dart">
                   class Download with ChangeNotifier {
-                    static final Map<String, Download> _instances = {};
+                    static final Map&lt;String, Download&gt; _instances = {};
                     final String id;
                   
                     factory Download(String id) {
