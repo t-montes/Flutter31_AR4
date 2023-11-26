@@ -489,14 +489,6 @@ class YouTube extends StatefulWidget {
               <div class="row">
 
                 <div class="col-lg-6">
-                  <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
-                    <h3>Music Playback</h3>
-                    <p>
-                      The second implementation is used by “music_playback. This widget is initializing variables upon the startup to display the currently playing song's title and the main artist. Its primary purpose is to show the artist whose song is currently being played by the app from the cache, along with the "cacheSongSub," which corresponds to the song's subtitle and typically represents the primary artist of the song. This approach ensures that whenever music is playing, the app consistently retrieves the song's title and the associated artists, which makes the app robust because even when connection is lost, the song with his title and his creator will be shown.                    </p>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
                   <div class="code-space">
                     <code-viewer title="music_playback.dart">
                       BoxSwitchTile(
@@ -518,11 +510,275 @@ class YouTube extends StatefulWidget {
                     </code-viewer>
                   </div>    
                 </div>
+
+                <div class="col-lg-6">
+                  <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Music Playback</h3>
+                    <p>
+                      The second implementation is used by “music_playback. This widget is initializing variables upon the startup to display the currently playing song's title and the main artist. Its primary purpose is to show the artist whose song is currently being played by the app from the cache, along with the "cacheSongSub," which corresponds to the song's subtitle and typically represents the primary artist of the song. This approach ensures that whenever music is playing, the app consistently retrieves the song's title and the associated artists, which makes the app robust because even when connection is lost, the song with his title and his creator will be shown.                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <hr>
+
+              <div class="row">
+
+                <div class="col-lg-4">
+                  <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Downloaded Songs</h3>
+                    <p>
+                      The third implementation was on the widget “downed_songs”, which serves as a representation of songs downloaded by the user. This widget incorporates numerous cache-related features designed to store songs that the user has downloaded but which haven't been saved on the server. The purpose of this implementation is to maintain a local cache of downloaded songs in the app's memory. It ensures that songs downloaded without an internet connection are saved in the cache, enabling users to listen to them even when offline.                    </p>
+                  </div>
+                </div>
+
+                <div class="col-lg-8">
+                  <div class="code-space">
+                    <code-viewer title="music_playback.dart">
+                      if (widget.cachedSongs == null) {
+                        Logger.root.info('Cache empty, calling audioQuery');
+                        final receivedSongs = await offlineAudioQuery.getSongs(
+                          sortType: songSortTypes[sortValue],
+                          orderType: songOrderTypes[orderValue],
+                        );
+                        Logger.root.info('Received ${receivedSongs.length} songs, filtering');
+                        _songs = receivedSongs
+                            .where(
+                              (i) =>
+                                  (i.duration ?? 60000) > 1000 * minDuration &&
+                                  (i.isMusic! || i.isPodcast! || i.isAudioBook!) &&
+                                  (includeOrExclude
+                                      ? checkIncludedOrExcluded(i)
+                                      : !checkIncludedOrExcluded(i)),
+                            )
+                            .toList();
+                      }
+                    </code-viewer>
+                  </div>    
+                </div>
       
               </div>
 
+
       </div>
     </section>
+
+    <section id="memory" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Memory</h2>
+          <p>Memory Management Strategies</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+              <h3>Downloaded Songs</h3>
+              <p>
+                The third implementation was on the widget “downed_songs”, which serves as a representation of songs downloaded by the user. This widget incorporates numerous cache-related features designed to store songs that the user has downloaded but which haven't been saved on the server. The purpose of this implementation is to maintain a local cache of downloaded songs in the app's memory. It ensures that songs downloaded without an internet connection are saved in the cache, enabling users to listen to them even when offline.                    </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="code-space">
+              <code-viewer title="downloaded_songs.dart">
+                if (widget.cachedSongs == null) {
+                  Logger.root.info('Cache empty, calling audioQuery');
+                  final receivedSongs = await offlineAudioQuery.getSongs(
+                    sortType: songSortTypes[sortValue],
+                    orderType: songOrderTypes[orderValue],
+                  );
+                  Logger.root.info('Received ${receivedSongs.length} songs, filtering');
+                  _songs = receivedSongs
+                      .where(
+                        (i) =>
+                            (i.duration ?? 60000) > 1000 * minDuration &&
+                            (i.isMusic! || i.isPodcast! || i.isAudioBook!) &&
+                            (includeOrExclude
+                                ? checkIncludedOrExcluded(i)
+                                : !checkIncludedOrExcluded(i)),
+                      )
+                      .toList();
+                }
+              </code-viewer>
+            </div>    
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-7">
+            <div class="code-space">
+              <code-viewer title="ext_storage_provider.dart">
+                class ExtStorageProvider {
+                  // asking for permission
+                  static Future&lt;bool&gt; requestPermission(Permission permission) async {
+                    if (await permission.isGranted) {
+                      return true;
+                    } else {
+                      final result = await permission.request();
+                      if (result == PermissionStatus.granted) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                  }
+                
+                  // getting external storage path
+                  static Future&lt;String?&gt; getExtStorage({
+                    required String dirName,
+                    required bool writeAccess,
+                  }) async {
+                    Directory? directory;                
+              </code-viewer>
+            </div>    
+          </div>
+
+          <div class="col-lg-5">
+            <div class="code-space">
+              <code-viewer title="downloaded_songs.dart">
+                try {
+                  await [
+                    Permission.manageExternalStorage,
+                  ].request();
+                  await tagger.writeTags(
+                    path: song['path'].toString(),
+                    tag: tag,
+                  );
+                } catch (e) {
+                  await tagger.writeTags(
+                    path: song['path'].toString(),
+                    tag: tag,
+                  );
+                }
+              </code-viewer>
+            </div>    
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+
+          <div class="col-lg-5 center-vertically">
+            <div class="code-space">
+              <code-viewer title="backup_and_restore.dart">
+                final Box settingsBox = Hive.box('settings');
+                final MyTheme currentTheme = GetIt.I&lt;MyTheme&gt;();
+                String autoBackPath = Hive.box('settings').get(
+                  'autoBackPath',
+                  defaultValue: '/storage/emulated/0/BlackHole/Backups',
+                ) as String;
+              </code-viewer>
+            </div>    
+          </div>
+
+          <div class="col-lg-7">
+            <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+              <h3>Color theme</h3>
+              <p>
+                One important aspect that uses storage in the app is the configuration of the visuals in the app, this involves the size of the letter and for example the theme of the app. In this case, we can see in the next image how Hive is used to access the user settings from local storage.              
+                Also, special functions like the one shown below allow a higher-level abstraction for using Hive, in this case the methos openHiveBox uses the box name and the limit to retrieve data from the Shared Preferences.
+                As saved before, Hive uses SharedPreferences to save data in keys, value form and access this information fast. The code showa how Hive.box is called to get the information from the ‘settings’ key. This is well done as SharedPreferences saves data that can quickly be accessed and in this special case, the information should be saved privately and persistently. It should be private because the information regarding the theme of the app has no use outside the app. It is also persistent, because this information should remain in the device, because it contains the favorite configuration for the user whenever he/she uses the app.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+
+          <div class="col-lg-7">
+            <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+              <h3>Spotify Credentials</h3>
+              <p>
+                As one of the main functionalities of BlackHole is to sync with Spotify, the credentials to access Spotify are saved locally in the device, this is done with the help of Hive, mentioned above, in the image below we can see a snipet of code in which the app saves the access token from spotify, a variable called Signed and the refreshSpotify token.
+                With the information saved above, the app is now able to do requests to the Spotify endpoint using the access token from the user, this is shown in the code snipet below, 
+                In the code snipet below we can evidence that the Spotify access token is saved with the functions listed above with Hive and used later, like for example in the next image, the fetchPlaylist function that calls the Spotify API uses the information from the access token to do the corresponding requests. 
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-5 center-vertically">
+            <div class="code-space">
+              <code-viewer title="backup_and_restore.dart">
+                if ((currentTime + 60) >= expiredAt) {
+                  final List&lt;String&gt; data =
+                      await SpotifyApi().getAccessToken(refreshToken: refreshToken);
+                  if (data.isNotEmpty) {
+                    Hive.box('settings').put('spotifySigned', true);
+                    accessToken = data[0];
+                    Hive.box('settings').put('spotifyAccessToken', data[0]);
+                    if (data[1] != 'null') {
+                      refreshToken = data[1];
+                      Hive.box('settings').put('spotifyRefreshToken', data[1]);
+                    }
+                    Hive.box('settings')
+                        .put('spotifyTokenExpireAt', currentTime + double.parse(data[2]));
+                  }
+                }
+                return accessToken;
+              </code-viewer>
+            </div>    
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-7 center-vertically">
+            <div class="code-space">
+              <code-viewer title="spotify_helper.dart">
+                Future&lt;String?&gt; retriveAccessToken() async {
+                  String? accessToken = Hive.box('settings')
+                      .get('spotifyAccessToken', defaultValue: null)
+                      ?.toString();
+                  String? refreshToken = Hive.box('settings')
+                      .get('spotifyRefreshToken', defaultValue: null)
+                      ?.toString();
+                  final double expiredAt = Hive.box('settings')
+                      .get('spotifyTokenExpireAt', defaultValue: 0.0) as double;
+                
+                  if (accessToken == null || refreshToken == null) {
+                    return null;
+                  } else {
+              </code-viewer>
+            </div>    
+          </div>
+
+          <div class="col-lg-5 center-vertically">
+            <div class="code-space">
+              <code-viewer title="spotify_helper.dart">
+              final List&lt;String&gt; data =
+                  await SpotifyApi().getAccessToken(code: code);
+              if (data.isNotEmpty) {
+                Hive.box('settings').put('spotifyAccessToken', data[0]);
+                Hive.box('settings').put('spotifyRefreshToken', data[1]);
+                Hive.box('settings').put(
+                  'spotifyTokenExpireAt',
+                  currentTime + int.parse(data[2]),
+                );
+                if (function != null) {
+                  return await function.call(data[0]);
+                }
+              }
+              </code-viewer>
+            </div>    
+          </div>
+
+        </div>
+        
+      </div>
+    </section>
+
 
   </main><!-- End #main -->
 
