@@ -113,122 +113,101 @@
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Testimonials</h2>
-          <p>What they are saying app_info us</p>
+          <h2>Defined Scenarios</h2>
+          <p>Performance Analysis Scenarios</p>
         </header>
 
-        <div class="code-space">
-          <code-viewer title="main.js">
-            class _CacheService {
-              Map<String, dynamic> _cache = {};
-            
-              dynamic read(String key) {
-                return _cache[key];
-              }
-            
-              void write(String key, dynamic value) {
-                _cache[key] = value;
-              }
-            
-              void delete(String key) {
-                _cache.remove(key);
-              }
-            
-              bool contains(String key) {
-                return _cache.containsKey(key);
-              }
-    
-              void flush() {
-                _cache.clear();
-              }
-            }
-            
-            final _CacheService cache = _CacheService();
-            
-          </code-viewer>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <a href="#ecn1" class="clickable-div">
+                <div class="testimonial-item">
+                <h3>Song Playing</h3>
+                <h4>Scenario 1</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The user opens the app, chooses a song, and initiates playback while keeping the app open.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="assets/img/pf1-dalle.png" class="testimonial-img" alt="">
+                  </div>
                 </div>
-                <p>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
-                </div>
-              </div>
+              </a>
             </div>
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <a href="#ecn2" class="clickable-div">
+                <div class="testimonial-item">
+                <h3>Download Playlist</h3>
+                <h4>Scenario 2</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The user chooses a playlist and selects the "Download Playlist" button.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="assets/img/pf2-dalle.png" class="testimonial-img" alt="">
+                  </div>
                 </div>
-                <p>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                </div>
-              </div>
+              </a>
             </div>
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <a href="#ecn3" class="clickable-div">
+                <div class="testimonial-item">
+                <h3>Background Reproduction</h3>
+                <h4>Scenario 3</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The user plays a song and switches to another application, allowing the music to seamlessly continue playing in the background.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="assets/img/pf3-dalle.png" class="testimonial-img" alt="">
+                  </div>
                 </div>
-                <p>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                </div>
-              </div>
+              </a>
             </div>
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <a href="#ecn4" class="clickable-div">
+                <div class="testimonial-item">
+                <h3>Play Offline Song</h3>
+                <h4>Scenario 4</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                </div>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The user, without internet connectivity, chooses to play a song that has already been downloaded in the app.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="assets/img/pf4-dalle.png" class="testimonial-img" alt="">
+                  </div>
               </div>
+              </a>
             </div>
 
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <a href="#ecn5" class="clickable-div">
+                <div class="testimonial-item">
+                <h3>Song Search</h3>
+                <h4>Scenario 5</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    The user searches for a specific song on YouTube within the app for playback.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="assets/img/pf5-dalle.png" class="testimonial-img" alt="">
+                  </div>
                 </div>
-                <p>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                </p>
-                <div class="profile mt-auto">
-                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                </div>
-              </div>
+              </a>
             </div>
 
           </div>
