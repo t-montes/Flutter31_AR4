@@ -2530,3 +2530,24 @@ section {
   text-decoration: none; /* Ensures no underline on hover */
   color: inherit; /* Keeps the same text color on hover */
 }
+
+.center-vertically {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  video {
+    width: 70% !important;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Ensure it does not overflow the viewport height */
+  }
+
+  .video-center {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Provide at least the full height of the viewport */
+    margin: 0; /* Remove default margin */
+  }
+}

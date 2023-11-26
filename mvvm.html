@@ -188,44 +188,46 @@
                 <b>The views:</b>The views are defined in the folder structure as Screens. These views use the view-model components, as they call the view-model for information. The views are only for displaying the information and collecting data from the user inputs. The image below shows some of the views that are implemented in the application.
               </p>
               
-              <div class="code-space" style="display: flex; align-items: center;">
-                <code-viewer title="home_screen.dart">
-                  @override
-                  Widget build(BuildContext context) {
-                    String name =
-                        Hive.box('settings').get('name', defaultValue: 'Guest') as String;
-                    final double screenWidth = MediaQuery.sizeOf(context).width;
-                    final bool rotated = MediaQuery.sizeOf(context).height < screenWidth;
-                    return SafeArea(
-                      child: Stack(
-                        children: [
-                          NestedScrollView(
-                            physics: const BouncingScrollPhysics(),
-                            controller: _scrollController,
-                            headerSliverBuilder: (
-                              BuildContext context,
-                              bool innerBoxScrolled,
-                            ) {
-                              return &lt;Widget&gt;[
-                                SliverAppBar(
-                                  expandedHeight: 135,
-                                  backgroundColor: Colors.transparent,
-                                  elevation: 0,
-                                  // pinned: true,
-                                  toolbarHeight: 65,
-                                  // floating: true,
-                                  automaticallyImplyLeading: false,
-                                  flexibleSpace: LayoutBuilder(
-                                    builder: (
-                                      BuildContext context,
-                                      BoxConstraints constraints,
-                                    ) ...
-                </code-viewer>
-                <div class="entry-image">
+              <div class="row">
+                <div class="code-space col-lg-7" style="display: flex; align-items: center;">
+                  <code-viewer title="home_screen.dart">
+                    @override
+                    Widget build(BuildContext context) {
+                      String name =
+                          Hive.box('settings').get('name', defaultValue: 'Guest') as String;
+                      final double screenWidth = MediaQuery.sizeOf(context).width;
+                      final bool rotated = MediaQuery.sizeOf(context).height < screenWidth;
+                      return SafeArea(
+                        child: Stack(
+                          children: [
+                            NestedScrollView(
+                              physics: const BouncingScrollPhysics(),
+                              controller: _scrollController,
+                              headerSliverBuilder: (
+                                BuildContext context,
+                                bool innerBoxScrolled,
+                              ) {
+                                return &lt;Widget&gt;[
+                                  SliverAppBar(
+                                    expandedHeight: 135,
+                                    backgroundColor: Colors.transparent,
+                                    elevation: 0,
+                                    // pinned: true,
+                                    toolbarHeight: 65,
+                                    // floating: true,
+                                    automaticallyImplyLeading: false,
+                                    flexibleSpace: LayoutBuilder(
+                                      builder: (
+                                        BuildContext context,
+                                        BoxConstraints constraints,
+                                      ) ...
+                  </code-viewer>
+                </div>
+                <div class="col-lg-5 center-vertically">
                   <img src="assets/img/mvvmTheViews.jpg" alt="" class="img-fluid">
                 </div>
               </div>
-            </article>
+          </article>
 
             <article class="entry entry-single">
               <p>
@@ -233,48 +235,51 @@
                 data access and building the DTOs that can be accessed by the other components 
                 of the application.                  
               </p>
-              
-              <div class="code-space" style="display: flex; align-items: center;">
-                <code-viewer title="download.dart">
-                  Future&lt;void&gt; downloadSong(
-                    BuildContext context,
-                    String? dlPath,
-                    String fileName,
-                    Map data,
-                  ) async {
-                    Logger.root.info('processing download');
-                    progress = null;
-                    notifyListeners();
-                    String? filepath;
-                    late String filepath2;
-                    String? appPath;
-                    final List&lt;int&gt; bytes = [];
-                    String lyrics = '';
-                    final artname = fileName.replaceAll('.m4a', '.jpg');
-                    if (!Platform.isWindows) {
-                      Logger.root.info('Getting App Path for storing image');
-                      appPath = Hive.box('settings').get('tempDirPath')?.toString();
-                      appPath ??= (await getTemporaryDirectory()).path;
-                    } else {
-                      final Directory? temp = await getDownloadsDirectory();
-                      appPath = temp!.path;
-                    }
-                </code-viewer>
-                <code-viewer title="download.dart">
-                  class Download with ChangeNotifier {
-                    static final Map&lt;String, Download&gt; _instances = {};
-                    final String id;
-                  
-                    factory Download(String id) {
-                      if (_instances.containsKey(id)) {
-                        return _instances[id]!;
+              <div class="row">
+                <div class="code-space col-lg-6">
+                  <code-viewer title="download.dart">
+                    Future&lt;void&gt; downloadSong(
+                      BuildContext context,
+                      String? dlPath,
+                      String fileName,
+                      Map data,
+                    ) async {
+                      Logger.root.info('processing download');
+                      progress = null;
+                      notifyListeners();
+                      String? filepath;
+                      late String filepath2;
+                      String? appPath;
+                      final List&lt;int&gt; bytes = [];
+                      String lyrics = '';
+                      final artname = fileName.replaceAll('.m4a', '.jpg');
+                      if (!Platform.isWindows) {
+                        Logger.root.info('Getting App Path for storing image');
+                        appPath = Hive.box('settings').get('tempDirPath')?.toString();
+                        appPath ??= (await getTemporaryDirectory()).path;
                       } else {
-                        final instance = Download._internal(id);
-                        _instances[id] = instance;
-                        return instance;
+                        final Directory? temp = await getDownloadsDirectory();
+                        appPath = temp!.path;
                       }
-                    }
-                </code-viewer>
+                  </code-viewer>
+                </div>
+                <div class="code-space col-lg-6 center-vertically">
+                  <code-viewer title="download.dart">
+                    class Download with ChangeNotifier {
+                      static final Map&lt;String, Download&gt; _instances = {};
+                      final String id;
+                    
+                      factory Download(String id) {
+                        if (_instances.containsKey(id)) {
+                          return _instances[id]!;
+                        } else {
+                          final instance = Download._internal(id);
+                          _instances[id] = instance;
+                          return instance;
+                        }
+                      }
+                  </code-viewer>
+                </div>
               </div>
             </div>
           </article>
