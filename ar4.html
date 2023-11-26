@@ -491,29 +491,29 @@
             </video>
           </div>
     
-          <!--TODO: uncomment <div class="col-lg-5 center-vertically">
+          <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>When we analyze the RAM consumption while downloading a playlist, we observe that each song is being downloaded and that there is a high percentage of memory size utilization. Furthermore, on average, every 5 seconds there is a peak in memory usage. This can be explained by the fact that, at intervals, the download connection performs so well that the application begins to request a bit more data to store in the mobile device's memory (Local Storage), aiming to download the songs as quickly as possible.</p>
+              <p>On this scenario the RAM use in consistient and depends on the app that I am currently using (the app that is a visible process). On this case the app is Chrome, so there are not many calls so this is the case with more frames per second provided by the cellphone.</p>
             </div>
-          </div>-->
+          </div>
         </div>
     
-        <!--TODO: uncomment <div class="row">
+        <div class="row">
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Memory Leaks</h3>
-              <p>TODO</p>
+              <p>As shown in the video, there are any memory leaks. This is easy to verify because the cellphone is reporting a consistent 10 Megas in the Memory Size Scale. This means that in the case when the music is reproducing on a background process, the mobile device does not have memory leaks while getting the song data to be reproduced.</p>
             </div>
           </div>
     
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Garbage Collection</h3>
-              <p>TODO</p>
+              <p>There is no presence of the Garbage Collector because the music is a background process and the operative system identifies that there is enough memory available to use, so there is no necessity of calling the Garbage Collector</p>
             </div>
           </div>
-        </div>-->
+        </div>
     
         <div class="row">
           <div class="col-lg-6 center-vertically center-horizontally">
