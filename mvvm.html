@@ -134,18 +134,19 @@
                 </p>
             </article>
             
-            <article class="entry entry-single">
-              <p>
-                1. The structure of the project shows the main components that a model view 
-                view model design patter has. However, the project is missing the folder that 
-                should save de view model. This view model is presented along different other 
-                components that we will present later.
-              </p>
-              <div class="entry-imag">
-                <img src="assets/img/blackhole-4.png" alt="" class="img-fluid">
+            <article class="entry entry-single row">
+              <div class="col-lg-6 center-vertically">
+                <p class="text-center">
+                  1. The structure of the project shows the main components that a model view 
+                  view model design patter has. However, the project is missing the folder that 
+                  should save the view model. This view model is presented along different other 
+                  components that we will present later.
+                </p>
               </div>
+              <div class="col-lg-6 custom-img-col center-horizontally" data-aos="zoom-out" data-aos-delay="100">
+                <img src="assets/img/blackhole-4.png" class="" alt="">
               </div>
-            </article>
+              </article>
             
             <article class="entry entry-single">
                 <p>
@@ -231,9 +232,7 @@
 
             <article class="entry entry-single">
               <p>
-                <b>MODELS:</b>  The models are shown below, they are in charge of manipulating the 
-                data access and building the DTOs that can be accessed by the other components 
-                of the application.                  
+                <b>VIEW-MODEL:</b>  As we can appreciate in the next image, the application has a view model that allows to communicate the models with the views. In this manner, we can also see how the communication is done asynchronously as shown in image above. We can see how when the Download song function is called there is a notifier that works asynchronously to tell the view that the song has been downloaded. This differs from a controller in which the response from the controller does not work in this asynchronous manner naturally.
               </p>
               <div class="row">
                 <div class="code-space col-lg-6">

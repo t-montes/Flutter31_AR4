@@ -109,21 +109,249 @@
     </section>
 
     <!-- ======= Section: Performance ======= -->
-    <section id="sonar" class="testimonials">
+    <section id="introduction" class="app_info">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0 custom-row">
+
+          <div class="col-lg-6 justify-content-center custom-text-col" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Introduction</h3>
+              <p>
+                This Technical Audit Report provides a comprehensive analysis of the Blackhole Flutter App, focusing on key technical aspects, including Reliability, Security, Maintainability, Duplications, and Code Coverage. The analysis is based on the utilization of SonarQube to conduct a thorough assessment of the codebase. The report aims to identify and address technical issues related to the course topics.
+                In the following image you can observe all the main results that will be discussed in this technical audit report.
+                <br><br>
+                In all the following charts, each dot in the chart corresponds to a Dart file of the app.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 custom-img-col" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/sonar-general.png" class="img-fluid custom-image" alt="">
+          </div>
+      
+        </div>
+      </div>
+      
+    </section>
+
+    <section id="reliability" class="testimonials">
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-          <h2>Sonar</h2>
-          <p>Technical Audit Report</p>
+          <p>Reliability</p>
         </header>
 
+        <p class="text-center">
+          Reliability refers to the app's ability to consistently perform its intended functions without failures or errors. This metric is meant to lead to a positive user experience expecting the behaviour of the app to be as expected.
+        </p>
+
         <div class="row">
+          <div class="col-lg-12">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Bugs</h3>
+              <p>
+                The Blackhole Flutter App demonstrates exceptional reliability, with <b>zero reported bugs</b>. All Dart files exhibit a class “A” rating, and the average lines of code per file fall within the range of 0 to 500. The largest Dart file contains 1636 lines, which is well within acceptable limits. This suggests a strong foundation in terms of code stability and minimal error occurrences.              
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row center-horizontally">
+          <div class="col-lg-12" style="width: 80%;" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/sonar-reliability.png" class="img-fluid custom-image" alt="">
+          </div>
         </div>
 
       </div>
     </section>
   
-  
+    <section id="security" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <p>Security</p>
+        </header>
+
+        <p class="text-center">
+          Security assesses the app's vulnerability to unauthorized access, data breaches, or malicious attacks. It's a very important metric as it protects user data, app functionality and reputation; vulnerabilities can lead to data leaks or exploitation.
+        </p>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box-ecns red-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Vulnerabilities</h3>
+              <p>
+                As Blackhole provides access to Spotify and YouTube music, the app utilizes API tokens to provide the user experience. The problem found concerning vulnerability was that the API tokens are not hidden from the user, and can be found easily in the repository, and used for data exploitation. These are the only <b>2 security vulnerabilities</b> found in the Blackhole application.              
+              </p>
+
+              <p>
+                <h4 style="margin-bottom: -10px;">Spotify Key Security Issue</h4>
+                <br>
+                <b>Type:</b> Critical
+                <br>
+                <b>Technical debt:</b> 30 minutes
+                <br>
+                <b>Security range:</b> E
+
+                <br><br>
+
+                <h4 style="margin-bottom: -10px;">Google API Key Security Issue</h4>
+                <br>
+                <b>Type:</b> Critical
+                <br>
+                <b>Technical debt:</b> 30 minutes
+                <br>
+                <b>Security range:</b> E
+              </p>
+
+              <p>
+                It is imperative to revoke, change, and remove the Spotify API key and Google API key from the codebase immediately, as SonarQube recommends. This key should never be exposed within the source code.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row center-horizontally">
+          <div class="col-lg-12" style="width: 80%;" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/sonar-security.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Security Review</h3>
+              <p>
+                The Blackhole Flutter App exhibits a commendable record with <b>zero security hotspots</b>. This suggests that potential security vulnerabilities have been addressed effectively. Identifying security hotspots ensures that known security risks are mitigated, preventing potential attacks.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="maintainability" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <p>Maintainability</p>
+        </header>
+    
+        <p class="text-center">
+          Maintainability evaluates how easy it is to modify or extend the app without introducing errors or inefficiencies. This metric is essential for long-term sustainability, which is very important for Open-Source apps like Blackhole. It simplifies the developmente process and reduces technical debt.        </p>
+    
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Code Smells and Technical Debt</h3>
+              <p>
+                A total of <b>58 code smells</b> have been detected, categorized as 46 high, 11 medium, and 1 low severity. These issues may necessitate attention to enhance the overall maintainability of the codebase. Addressing these code smells will help improve the code's clarity, readability, and maintainability. The <b>overall maintainability rating is of class “A”</b> for all the Dart files, which means that the codebase adheres to the best practices and industry standards for maintainability.              </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row center-horizontally">
+          <div class="col-lg-12" style="width: 80%;" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/sonar-maintainability.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+
+        <div class="row center-horizontally">
+          <div class="col-lg-8">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Technical Debt</h3>
+              <p>
+                The cumulative technical debt for the application is estimated at <b>1 day and 3 hours</b> (1d 3h). This reflects the time required to address the identified code smells and improve code quality. Reducing technical debt is crucial for maintaining the long-term sustainability of the project.            </div>
+          </div>
+
+          <div class="col-lg-4 center-vertically" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/sonar-maintainability2.png" class="img-fluid" alt="">
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+    <section id="duplications" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <p>Duplications</p>
+        </header>
+    
+        <p class="text-center">
+          Duplications, as expected, identify repeated code blocks in the app, which can lead to inconsistency and maintenance challenges. Reducing duplications streamlines maintenance and improves code quality.        </p>
+    
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Code Duplication Analysis</h3>
+              <p>
+                The Blackhole Flutter App contains <b>3.8% duplications from 24,000 lines of code</b>. This is further broken down into 22 duplicated code blocks (1,396 duplicated lines). Identifying and addressing these duplications can lead to more efficient code maintenance and minimize potential inconsistencies.              </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row center-horizontally">
+          <div class="col-lg-12" style="width: 80%;" data-aos="zoom-out" data-aos-delay="100">
+            <!-- Placeholder for image -->
+            <img src="assets/img/sonar-duplications.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+    
+      </div>
+    </section>
+
+    <section id="coverage" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <p>Coverage</p>
+        </header>
+    
+        <p class="text-center">
+          Coverage is crucial for ensuring the robustness of the code. It measures the extent to which the codebase is covered by automated tests.
+        </p>
+    
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="box-ecns red-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Test Coverage Analysis</h3>
+              <p>
+                The codebase of the Blackhole Flutter App currently exhibits <b>0% code coverage</b>, implying that there are no unit tests in place. A lack of test coverage can result in undetected issues and hinder code stability and reliability. It is highly recommended to implement a comprehensive testing strategy to validate the app's functionality.              </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row center-horizontally">
+          <div class="col-lg-12" style="width: 80%;" data-aos="zoom-out" data-aos-delay="100">
+            <!-- Placeholder for image -->
+            <img src="assets/img/sonar-coverage.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+    
+      </div>
+    </section>
+
+    <section id="conclusion" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <p>Conclusion</p>
+        </header>
+    
+        <p class="text-center">
+          In summary, the Blackhole Flutter App demonstrates commendable reliability with zero reported bugs. However, there are critical security vulnerabilities related to API keys that need immediate attention. The static analysis also exhibits an important number of code smells, which, if addressed, can enhance maintainability, and reduce technical debt. Additionally, duplications and the absence of code coverage highlight areas for improvement for Blackhole to be a top music platform.        
+          <br><br>
+          This report aims to guide the development team in making informed decisions to enhance the app's quality, security, and maintainability. Addressing the identified issues will contribute to a more robust and reliable Blackhole Flutter App in the long term.
+        </p>
+      </div>
+    </section>
+    
+
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

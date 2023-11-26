@@ -2183,7 +2183,7 @@ section {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar .sidebar-title {
+.sidebar-title {
   font-size: 20px;
   font-weight: 700;
   padding: 0 0 0 0;
@@ -2192,25 +2192,25 @@ section {
   position: relative;
 }
 
-.sidebar .sidebar-item {
+.sidebar-item {
   margin-bottom: 30px;
 }
 
-.sidebar .search-form form {
+.search-form form {
   background: #fff;
   border: 1px solid #ddd;
   padding: 3px 10px;
   position: relative;
 }
 
-.sidebar .search-form form input[type=text] {
+.search-form form input[type=text] {
   border: 0;
   padding: 4px;
   border-radius: 4px;
   width: calc(100% - 40px);
 }
 
-.sidebar .search-form form button {
+.search-form form button {
   position: absolute;
   top: 0;
   right: 0;
@@ -2227,63 +2227,63 @@ section {
   line-height: 0;
 }
 
-.sidebar .search-form form button i {
+.search-form form button i {
   line-height: 0;
 }
 
-.sidebar .search-form form button:hover {
+.search-form form button:hover {
   background: #5465f2;
 }
 
-.sidebar .categories ul {
+.categories ul {
   list-style: none;
   padding: 0;
 }
 
-.sidebar .categories ul li+li {
+.categories ul li+li {
   padding-top: 10px;
 }
 
-.sidebar .categories ul a {
+.categories ul a {
   color: #012970;
   transition: 0.3s;
 }
 
-.sidebar .categories ul a:hover {
+.categories ul a:hover {
   color: #4154f1;
 }
 
-.sidebar .categories ul a span {
+.categories ul a span {
   padding-left: 5px;
   color: #aaaaaa;
   font-size: 14px;
 }
 
-.sidebar .recent-posts .post-item+.post-item {
+.recent-posts .post-item+.post-item {
   margin-top: 15px;
 }
 
-.sidebar .recent-posts img {
+.recent-posts img {
   width: 80px;
   float: left;
 }
 
-.sidebar .recent-posts h4 {
+.recent-posts h4 {
   font-size: 15px;
   margin-left: 95px;
   font-weight: bold;
 }
 
-.sidebar .recent-posts h4 a {
+.recent-posts h4 a {
   color: #012970;
   transition: 0.3s;
 }
 
-.sidebar .recent-posts h4 a:hover {
+.recent-posts h4 a:hover {
   color: #4154f1;
 }
 
-.sidebar .recent-posts time {
+.recent-posts time {
   display: block;
   margin-left: 95px;
   font-style: italic;
@@ -2291,20 +2291,20 @@ section {
   color: #aaaaaa;
 }
 
-.sidebar .tags {
+.tags {
   margin-bottom: -10px;
 }
 
-.sidebar .tags ul {
+.tags ul {
   list-style: none;
   padding: 0;
 }
 
-.sidebar .tags ul li {
+.tags ul li {
   display: inline-block;
 }
 
-.sidebar .tags ul a {
+.tags ul a {
   color: #0257ee;
   font-size: 14px;
   padding: 6px 14px;
@@ -2314,13 +2314,13 @@ section {
   transition: 0.3s;
 }
 
-.sidebar .tags ul a:hover {
+.tags ul a:hover {
   color: #fff;
   border: 1px solid #4154f1;
   background: #4154f1;
 }
 
-.sidebar .tags ul a span {
+.tags ul a span {
   padding-left: 5px;
   color: #a5c5fe;
   font-size: 14px;
@@ -2555,4 +2555,30 @@ section {
     min-height: 100vh; /* Provide at least the full height of the viewport */
     margin: 0; /* Remove default margin */
   }
+}
+
+/* Custom container flexbox */
+.custom-container .custom-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Flex column for text */
+.custom-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Flex column for the image to match the height of the text column */
+.custom-img-col {
+  display: flex;
+  align-items: stretch; /* This will stretch the image div to match the height of the text div */
+}
+
+/* Styling for the image to take up available space */
+.custom-image {
+  width: 100%;
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
+  object-fit: contain; /* Contain the image within the div without cropping */
 }

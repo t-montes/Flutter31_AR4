@@ -417,7 +417,7 @@
             <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
               <h3>Cached Image</h3>
               <p>
-                The first implementation we found was the app saving on cache images that were used a lot troughs the app, and do not change. In all the YouTube views it is used in the same way, that is getting the images first and then calling them if they are in the cache. As shown in the following three images, the purpose is having the images on cache, and extract them to show them easily. To do this BlackHole uses a library called “cached_network_image” that allows to show images from the internet and keep them in the cache directory.
+                The first implementation we found was the app saving on cache images that were used a lot throughout the app, and do not change. In all the YouTube views it is used in the same way, that is getting the images first and then calling them if they are in the cache. As shown in the following three images, the purpose is to have the images on cache, and extract them to show them easily. To do this BlackHole uses a library called “cached_network_image” that allows to show images from the internet and keep them in the cache directory.
               </p>
             </div>
           </div>
@@ -515,7 +515,8 @@ class YouTube extends StatefulWidget {
                   <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
                     <h3>Music Playback</h3>
                     <p>
-                      The second implementation is used by “music_playback. This widget is initializing variables upon the startup to display the currently playing song's title and the main artist. Its primary purpose is to show the artist whose song is currently being played by the app from the cache, along with the "cacheSongSub," which corresponds to the song's subtitle and typically represents the primary artist of the song. This approach ensures that whenever music is playing, the app consistently retrieves the song's title and the associated artists, which makes the app robust because even when connection is lost, the song with his title and his creator will be shown.                    </p>
+                      The second implementation is used by “music_playback. This widget is initializing variables upon the startup to display the currently playing song's title and the main artist. Its primary purpose is to show the artist whose song is currently being played by the app from the cache, along with the "cacheSongSub," which corresponds to the song's subtitle and typically represents the primary artist of the song. This approach ensures that whenever music is playing, the app consistently retrieves the song's title and the associated artists, which makes the app robust because even when the connection is lost, the song with its title and its creator will be shown.
+                    </p>
                   </div>
                 </div>
 
@@ -683,9 +684,7 @@ class YouTube extends StatefulWidget {
             <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
               <h3>Color theme</h3>
               <p>
-                One important aspect that uses storage in the app is the configuration of the visuals in the app, this involves the size of the letter and for example the theme of the app. In this case, we can see in the next image how Hive is used to access the user settings from local storage.              
-                Also, special functions like the one shown below allow a higher-level abstraction for using Hive, in this case the methos openHiveBox uses the box name and the limit to retrieve data from the Shared Preferences.
-                As saved before, Hive uses SharedPreferences to save data in keys, value form and access this information fast. The code showa how Hive.box is called to get the information from the ‘settings’ key. This is well done as SharedPreferences saves data that can quickly be accessed and in this special case, the information should be saved privately and persistently. It should be private because the information regarding the theme of the app has no use outside the app. It is also persistent, because this information should remain in the device, because it contains the favorite configuration for the user whenever he/she uses the app.
+                One important aspect that uses storage in the app is the configuration of the visuals in the app, this involves the size of the letter and for example the theme of the app. In this case, we can see in the next image how Hive is used to access the user settings from local storage. Also, special functions like the one shown below allow a higher-level abstraction for using Hive, in this case, the method openHiveBox uses the box name and the limit to retrieve data from the Shared Preferences. As said before, Hive uses SharedPreferences to save data in keys, and values form and access this information fast. The code shows how Hive.box is called to get the information from the ‘settings’ key. This is well done as SharedPreferences saves data that can quickly be accessed and in this special case, the information should be saved privately and persistently. It should be private because the information regarding the theme of the app has no use outside the app. It is also persistent because this information should remain in the device because it contains the favorite configuration for the user whenever he/she uses the app.
               </p>
             </div>
           </div>
@@ -700,9 +699,7 @@ class YouTube extends StatefulWidget {
             <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
               <h3>Spotify Credentials</h3>
               <p>
-                As one of the main functionalities of BlackHole is to sync with Spotify, the credentials to access Spotify are saved locally in the device, this is done with the help of Hive, mentioned above, in the image below we can see a snipet of code in which the app saves the access token from spotify, a variable called Signed and the refreshSpotify token.
-                With the information saved above, the app is now able to do requests to the Spotify endpoint using the access token from the user, this is shown in the code snipet below, 
-                In the code snipet below we can evidence that the Spotify access token is saved with the functions listed above with Hive and used later, like for example in the next image, the fetchPlaylist function that calls the Spotify API uses the information from the access token to do the corresponding requests. 
+                As one of the main functionalities of BlackHole is to sync with Spotify, the credentials to access Spotify are saved locally in the device, this is done with the help of Hive, mentioned above, in the image below we can see a snippet of code in which the app saves the access token from Spotify, a variable called Signed and the refreshSpotify token. With the information saved above, the app is now able to make requests to the Spotify endpoint using the access token from the user, this is shown in the code snippet below, In the code snippet below we can evidence that the Spotify access token is saved with the functions listed above with Hive and used later, like for example in the next image, the fetchPlaylist function that calls the Spotify API uses the information from the access token to do the corresponding requests. 
               </p>
             </div>
           </div>
@@ -793,8 +790,7 @@ class YouTube extends StatefulWidget {
             <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
               <h3>Downloaded Songs</h3>
               <p>
-                An identification using threads occurs in the “youtube_playlist” view, which is similar to the top view.
-                This snippet of code show the implementation of threads, utilizing the "compute" function This function is a highly effective choice because it guarantees that resource-intensive and time-consuming computations take place in a separate thread, which allows the main thread to be responsive. In this case, the "compute" function is used three times for handling demanding computational tasks, such as playlist searches and keyword searches across the YouTube servers. The purpose of using the compute function is likely to prevent the app from freezing or becoming unresponsive while dealing with these complex computations.              
+                An identification using threads occurs in the “youtube_playlist” view, which is similar to the top view. This snippet of code shows the implementation of threads, utilizing the "compute" function This function is a highly effective choice because it guarantees that resource-intensive and time-consuming computations take place in a separate thread, which allows the main thread to be responsive. In this case, the "compute" function is used three times for handling demanding computational tasks, such as playlist searches and keyword searches across the YouTube servers. The purpose of using the compute function is likely to prevent the app from freezing or becoming unresponsive while dealing with these complex computations.
               </p>
             </div>
           </div>
