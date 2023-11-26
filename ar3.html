@@ -122,24 +122,6 @@
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-              <a href="#ecn5" class="clickable-div">
-                <div class="testimonial-item">
-                <h3>Offline Playlist Management</h3>
-                <h4>Scenario 5</h4>
-                <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    In this scenario, the app misleadingly appears to allow users to create new playlists and add songs to them when no connectivity is available. But the playlists remain empty ...
-                  </p>
-                  <div class="profile mt-auto">
-                    <img src="assets/img/ecn5.png" class="testimonial-img" alt="">
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <div class="swiper-slide">
               <a href="#ecn1" class="clickable-div">
                 <div class="testimonial-item">
                 <h3>Song Preloading</h3>
@@ -208,6 +190,24 @@
                     <img src="assets/img/ecn4.png" class="testimonial-img" alt="">
                   </div>
               </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="#ecn5" class="clickable-div">
+                <div class="testimonial-item">
+                <h3>Offline Playlist Management</h3>
+                <h4>Scenario 5</h4>
+                <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    In this scenario, the app misleadingly appears to allow users to create new playlists and add songs to them when no connectivity is available. But the playlists remain empty ...
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="assets/img/ecn5.png" class="testimonial-img" alt="">
+                  </div>
+                </div>
               </a>
             </div>
 
@@ -489,6 +489,15 @@ class YouTube extends StatefulWidget {
               <div class="row">
 
                 <div class="col-lg-6">
+                  <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+                    <h3>Music Playback</h3>
+                    <p>
+                      The second implementation is used by “music_playback. This widget is initializing variables upon the startup to display the currently playing song's title and the main artist. Its primary purpose is to show the artist whose song is currently being played by the app from the cache, along with the "cacheSongSub," which corresponds to the song's subtitle and typically represents the primary artist of the song. This approach ensures that whenever music is playing, the app consistently retrieves the song's title and the associated artists, which makes the app robust because even when the connection is lost, the song with its title and its creator will be shown.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
                   <div class="code-space">
                     <code-viewer title="music_playback.dart">
                       BoxSwitchTile(
@@ -509,15 +518,6 @@ class YouTube extends StatefulWidget {
                       ),
                     </code-viewer>
                   </div>    
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
-                    <h3>Music Playback</h3>
-                    <p>
-                      The second implementation is used by “music_playback. This widget is initializing variables upon the startup to display the currently playing song's title and the main artist. Its primary purpose is to show the artist whose song is currently being played by the app from the cache, along with the "cacheSongSub," which corresponds to the song's subtitle and typically represents the primary artist of the song. This approach ensures that whenever music is playing, the app consistently retrieves the song's title and the associated artists, which makes the app robust because even when the connection is lost, the song with its title and its creator will be shown.
-                    </p>
-                  </div>
                 </div>
 
               </div>
@@ -667,6 +667,15 @@ class YouTube extends StatefulWidget {
 
         <div class="row">
 
+          <div class="col-lg-7">
+            <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+              <h3>Color theme</h3>
+              <p>
+                One important aspect that uses storage in the app is the configuration of the visuals in the app, this involves the size of the letter and for example the theme of the app. In this case, we can see in the next image how Hive is used to access the user settings from local storage. Also, special functions like the one shown below allow a higher-level abstraction for using Hive, in this case, the method openHiveBox uses the box name and the limit to retrieve data from the Shared Preferences. As said before, Hive uses SharedPreferences to save data in keys, and values form and access this information fast. The code shows how Hive.box is called to get the information from the ‘settings’ key. This is well done as SharedPreferences saves data that can quickly be accessed and in this special case, the information should be saved privately and persistently. It should be private because the information regarding the theme of the app has no use outside the app. It is also persistent because this information should remain in the device because it contains the favorite configuration for the user whenever he/she uses the app.
+              </p>
+            </div>
+          </div>
+
           <div class="col-lg-5 center-vertically">
             <div class="code-space">
               <code-viewer title="backup_and_restore.dart">
@@ -678,15 +687,6 @@ class YouTube extends StatefulWidget {
                 ) as String;
               </code-viewer>
             </div>    
-          </div>
-
-          <div class="col-lg-7">
-            <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
-              <h3>Color theme</h3>
-              <p>
-                One important aspect that uses storage in the app is the configuration of the visuals in the app, this involves the size of the letter and for example the theme of the app. In this case, we can see in the next image how Hive is used to access the user settings from local storage. Also, special functions like the one shown below allow a higher-level abstraction for using Hive, in this case, the method openHiveBox uses the box name and the limit to retrieve data from the Shared Preferences. As said before, Hive uses SharedPreferences to save data in keys, and values form and access this information fast. The code shows how Hive.box is called to get the information from the ‘settings’ key. This is well done as SharedPreferences saves data that can quickly be accessed and in this special case, the information should be saved privately and persistently. It should be private because the information regarding the theme of the app has no use outside the app. It is also persistent because this information should remain in the device because it contains the favorite configuration for the user whenever he/she uses the app.
-              </p>
-            </div>
           </div>
 
         </div>
