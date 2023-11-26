@@ -126,10 +126,11 @@
               <div class="entry-content">
                 <p>
                   The "Facade" design pattern is a structural pattern used in software development, including mobile applications, to simplify and provide a unified interface for a complex set of subsystems, classes, or components. Its main goal is to hide internal complexity and provide a simpler and more cohesive way to interact with these subsystems, making the system easier to use and maintain.
-                  And BlackHole, the developers decided to use facade in the search bar. This choose was made in order to maintain in a monolith al the code that involves the search bar. This bar in the most of the views present, so it has a lot of functionalities that it has to manage, ones of them are: <br>
-                  •	Search inside the app, search in the youtube API and search in the spotify API, which all of them are in the search.dart file (Img 1) <br>
-                  •	 Fetch the last search the user has done (Img 1) <br>
-                    •	Get the trending search (Img 2) <br>
+                  And BlackHole, the developers decided to use facade in the search bar. This was made in order to maintain in a monolith all the code that involves the search bar. This bar is present  in most of the views, so it has a lot of functionalities that it has to manage, ones of them are:
+                  <br>
+                  •	Search inside the app, search in the youtube API and search in the spotify API, which all of them are in the search.dart file (Img 1)<br>
+                  •	 Fetch the last search the user has done (Img 1)<br>
+                    •	Get the trending search (Img 2)<br>
                     •	Search not found (Img 2) <br>
                     •	Add search to history (Img 2) <br>
                     •	Use other widgets, like looking for the location in order to recommend trending music of the zone the user is (Img 3)
@@ -149,7 +150,7 @@
 
             <article class="entry entry-single">
               <p>
-               <b>Image2: </b>Functions to add to the histtory, get the tranding search and nothing found function when the user searched for words
+               <b>Image2:</b>Functions to add to the history, get the trending search and nothing found function when the user searched for words
               </p>
               <div class="entry-imagen">
                 <img src="assets/img/Imagen2.jpg" alt="" class="img-fluid">
@@ -159,7 +160,7 @@
 
             <article class="entry entry-single">
               <p>
-               <b>Image3: </b> When looking for the trending music, the search.dart file calls AppLocations to know the language in which the app is for internationalize the text, which this will make that the text displays will be in the appropriate language according to the device's settings.
+               <b>Image3: </b> When looking for trending music, the search.dart file calls AppLocations to know the language. With the language, all the in the app can be internationalized, this will allow the displayed text to be in the appropriate language according to the device's settings.
               </p>
               <div class="entry-imagen">
                 <img src="assets/img/Imagen3.jpg" alt="" class="img-fluid">
