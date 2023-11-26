@@ -592,12 +592,12 @@
             </video>
           </div>
     
-          <!--TODO: uncomment <div class="col-lg-5 center-vertically">
+          <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>When we analyze the RAM consumption while downloading a playlist, we observe that each song is being downloaded and that there is a high percentage of memory size utilization. Furthermore, on average, every 5 seconds there is a peak in memory usage. This can be explained by the fact that, at intervals, the download connection performs so well that the application begins to request a bit more data to store in the mobile device's memory (Local Storage), aiming to download the songs as quickly as possible.</p>
+              <p>The app exhibits minimal memory usage, consistently hovering around 100. This figure remains constant as the songs being played have been pre-downloaded into local storage, ensuring playback availability whenever the user desires, irrespective of internet connectivity.</p>
             </div>
-          </div>-->
+          </div>
         </div>
     
         <!--TODO: uncomment <div class="row">
@@ -693,12 +693,12 @@
             </video>
           </div>
     
-          <!--TODO: uncomment <div class="col-lg-5 center-vertically">
+          <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>When we analyze the RAM consumption while downloading a playlist, we observe that each song is being downloaded and that there is a high percentage of memory size utilization. Furthermore, on average, every 5 seconds there is a peak in memory usage. This can be explained by the fact that, at intervals, the download connection performs so well that the application begins to request a bit more data to store in the mobile device's memory (Local Storage), aiming to download the songs as quickly as possible.</p>
+              <p>When examining the memory consumption in the profile, we observe that it is relatively high. This is attributed to the fact that the song is being fetched from the YouTube API and is being cached while being played. In this instance, we note that the download from the YouTube API was restricted to a maximum, preventing the memory spikes experienced in scenario 1. In that scenario, the application downloaded music from its own database and stored it in local storage.</p>
             </div>
-          </div>-->
+          </div>
         </div>
     
         <!--TODO: uncomment <div class="row">
