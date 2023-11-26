@@ -543,6 +543,107 @@
       </div>
     </section>
 
+    <section id="ecn4" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <h2>Scenario 4</h2>
+          <p>Play Offline Song</p>
+        </header>
+    
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn4Video_1" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1VXrkaEi8d7viLhbuzqKOMegHgehTu-Bn" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    
+          <div class="col-lg-5">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Frame rate</h3>
+              <p>The app maintains a consistent frame rate exceeding 50 frames per second, and the song plays flawlessly on the cellphone. There are no slow frames (Jank), and the UI is highly responsive with no delays in the rendering of frames within the app.</p>
+            </div>
+          </div>
+        </div>
+    
+        <br>
+    
+        <div class="row">
+          <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>CPU</h3>
+              <p>Upon selecting a song, the CPU requires up to 5 seconds to fulfill this task. This delay might result in a perceived sluggishness during the song loading process and could potentially hinder other tasks that the CPU is concurrently handling.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-7" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/esc_3_Cpu.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+    
+        <br>
+    
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn4Video_2" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1TQ8xUX_ejNTSGlBhA48Bu_PRqJta_K2t" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    
+          <!--TODO: uncomment <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>RAM Consumption</h3>
+              <p>When we analyze the RAM consumption while downloading a playlist, we observe that each song is being downloaded and that there is a high percentage of memory size utilization. Furthermore, on average, every 5 seconds there is a peak in memory usage. This can be explained by the fact that, at intervals, the download connection performs so well that the application begins to request a bit more data to store in the mobile device's memory (Local Storage), aiming to download the songs as quickly as possible.</p>
+            </div>
+          </div>-->
+        </div>
+    
+        <!--TODO: uncomment <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Memory Leaks</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Garbage Collection</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+        </div>-->
+    
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Threading</h3>
+              <p>This scenario <b>also</b> utilizes the audioHandler package from Flutter, this package uses threading to play the music in the background. This thread is in charge of queueing audio events, seeking audio, playing audio and pausing audio. This thread allows all the audio related functions to be working outside of the main thread, this is great for playing on background and using the rest of the functions of the app while playing music.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-6" style="align-items: center;">
+            <div class="code-space">
+              <code-viewer title="audioplayer.dart">
+                IconButton(
+                  tooltip: AppLocalizations.of(context)!.play,
+                  onPressed: audioHandler.play,
+                  icon: const Icon(
+                    Icons.play_arrow_rounded,
+                  ),
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              </code-viewer>
+            </div>
+          </div>
+
+        </div>
+    
+      </div>
+    </section>
+
 
 
     <section id="overdrawing" class="testimonials">
