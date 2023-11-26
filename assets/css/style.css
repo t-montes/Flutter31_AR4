@@ -2536,6 +2536,11 @@ section {
   align-items: center;
 }
 
+.center-horizontally {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 600px) {
   video {
     width: 70% !important;

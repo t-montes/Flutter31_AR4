@@ -696,7 +696,7 @@ class YouTube extends StatefulWidget {
 
         <div class="row">
 
-          <div class="col-lg-7">
+          <div class="col-lg-6">
             <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
               <h3>Spotify Credentials</h3>
               <p>
@@ -707,7 +707,7 @@ class YouTube extends StatefulWidget {
             </div>
           </div>
 
-          <div class="col-lg-5 center-vertically">
+          <div class="col-lg-6 center-vertically">
             <div class="code-space">
               <code-viewer title="backup_and_restore.dart">
                 if ((currentTime + 60) >= expiredAt) {
@@ -756,7 +756,7 @@ class YouTube extends StatefulWidget {
 
           <div class="col-lg-5 center-vertically">
             <div class="code-space">
-              <code-viewer title="spotify_helper.dart">
+              <code-viewer title="top.dart">
               final List&lt;String&gt; data =
                   await SpotifyApi().getAccessToken(code: code);
               if (data.isNotEmpty) {
@@ -776,6 +776,38 @@ class YouTube extends StatefulWidget {
 
         </div>
         
+      </div>
+    </section>
+
+    <section id="threading" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Threading</h2>
+          <p>Threading Strategies</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box-ecns" data-aos="fade-right" data-aos-delay="100">
+              <h3>Downloaded Songs</h3>
+              <p>
+                An identification using threads occurs in the “youtube_playlist” view, which is similar to the top view.
+                This snippet of code show the implementation of threads, utilizing the "compute" function This function is a highly effective choice because it guarantees that resource-intensive and time-consuming computations take place in a separate thread, which allows the main thread to be responsive. In this case, the "compute" function is used three times for handling demanding computational tasks, such as playlist searches and keyword searches across the YouTube servers. The purpose of using the compute function is likely to prevent the app from freezing or becoming unresponsive while dealing with these complex computations.              
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8 center-vertically center-horizontally">
+                <div>
+                  <img src="assets/img/threading1.png" alt="">
+                </div>
+          </div>
+
+        </div>
+
+
       </div>
     </section>
 
