@@ -269,7 +269,7 @@
           <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>The app exhibits minimal memory usage, consistently hovering around 100. This figure remains constant as the songs being played have been pre-downloaded into local storage, ensuring playback availability whenever the user desires, irrespective of internet connectivity.</p>
+              <p>The application's RAM usage initiates upon clicking a song, as it begins to gather and store information in the cache memory. The frames per second maintain a consistently low average, approximately around 40. This issue arises from the app struggling to render frame times, primarily due to the prevalence of slow frames (Jank). This is evident in the graph by the high coral-color bars.</p>
             </div>
           </div>
         </div>
@@ -278,14 +278,14 @@
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Memory Leaks</h3>
-              <p>TODO</p>
+              <p>As presented in the snapshot, there are two big memory leaks in the app. We can identify the memory leaks when we see Peaks in the timeline. As shown in the video, there are two major peaks in which the app grows its memory size and stabilizes.</p>
             </div>
           </div>
 
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Garbage Collection</h3>
-              <p>TODO</p>
+              <p>The Garbage Collector (GC) is invoked very frequently in the application. In the graph, this is visually represented by a recurring blue dot appearing consistently above the orange dotted line. The prevalence of this blue dot across the entire timeline indicates that the app excessively caches song data, leading to frequent clean-up operations by the GC for unused data.</p>
             </div>
           </div>
         </div>
@@ -317,6 +317,73 @@
       </div>
     </section>        
 
+
+    <section id="overdrawing" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Overdrawing</h2>
+          <p>Flutter Overdrawing</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-3 video-center">
+            <video id="overdrawingVideo" loop muted style="width: 100%; height: auto;">
+              <source src="https://drive.google.com/uc?export=download&id=1OuY3bUA33JxsgEBIiSBlW8u2wbC0H925" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-8 center-vertically">
+            <div class="box-ecns" data-aos="fade-left" data-aos-delay="100">
+              <h3></h3>
+              <p>
+                The overall visual presentation of the app looks quite good. As demonstrated in the video, the app efficiently paints pixels only once, contributing to optimal GPU performance. This efficiency is likely attributed to the use of Flutter for app development, as Flutter appears to be well-optimized. Consequently, apps created with Flutter seem to avoid the issue of overdrawing.
+                <br><br>
+                In the video, all the pixels of the app are painted in blue, indicating that they are painted only once. Even elements like cards or more complex components don't seem to experience overdrawing issues. This not only enhances the app's visual appeal but also ensures that the GPU isn't burdened with unnecessary rendering tasks, ultimately leading to smoother performance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>        
+
+    <section id="memory-leaks-library" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Memory Leaks</h2>
+          <p>Libraries for avoiding Memory Leaks</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-4 center-vertically center-horizontally">
+            <div class="box-ecns" data-aos="fade-left" data-aos-delay="100">
+              <h3>Dispose</h3>
+              <p>In the app, the dispose() method is frequently utilized in various views. Its main purpose is to clean up memory when an object is no longer needed, preventing potential memory leaks in the application. By invoking dispose(), the app ensures that resources are released properly, enhancing overall performance and stability. This is an essential practice to maintain the app's efficiency and prevent unnecessary memory consumption.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 center-vertically center-horizontally">
+            <div class="box-ecns" data-aos="fade-left" data-aos-delay="100">
+              <h3>Provider</h3>
+              <p>Provider is a state management library that promotes a declarative approach, reducing the likelihood of memory leaks caused by manual state management. By encouraging a more straightforward and structured way of handling state, it contributes to the overall robustness and reliability of the application. This approach helps developers avoid common pitfalls associated with manual state handling and enhances the maintainability of the codebase.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 center-vertically center-horizontally">
+            <div class="box-ecns" data-aos="fade-left" data-aos-delay="100">
+              <h3>ListView.builder</h3>
+              <p>Using `ListView.builder` is a recommended practice to mitigate the risk of memory leaks. This widget is beneficial because it dynamically generates elements at runtime, as opposed to pre-creating an extensive list of widgets all at once. By adopting this approach, the application efficiently manages memory resources, especially when dealing with large sets of data. This on-demand creation of elements enhances performance.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
 
   
@@ -369,6 +436,7 @@
             videos.push(document.getElementById('ecn' + i + 'Video_1'));
             videos.push(document.getElementById('ecn' + i + 'Video_2'));
         }
+        videos.push(document.getElementById('overdrawingVideo'));
 
         var checkScroll = function() {
             videos.forEach(function(video) {
