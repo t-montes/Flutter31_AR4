@@ -2521,3 +2521,12 @@ section {
   display: flex; 
 }
 
+.clickable-div {
+  text-decoration: none; /* Removes underline from link */
+  color: inherit; /* Inherits text color from parent */
+}
+
+.clickable-div:hover {
+  text-decoration: none; /* Ensures no underline on hover */
+  color: inherit; /* Keeps the same text color on hover */
+}
