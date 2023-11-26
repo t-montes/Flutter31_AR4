@@ -319,6 +319,129 @@
       </div>
     </section>        
 
+    <section id="ecn2" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <h2>Scenario 2</h2>
+          <p>Download Playlist</p>
+        </header>
+    
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn2Video_1" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1qwfcNoX5RF0AFX79NwRT9i_yo5b2h-9h" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    
+          <div class="col-lg-5">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Frame rate</h3>
+              <p>As observed in the video, selecting the playlist download option results in an increase in the average frame rate to approximately 50 FPS. However, a significant majority of these frames fall into the category of "slow frames," commonly known as "Jank." This indicates that the frames are taking considerably longer to render that it should be.</p>
+            </div>
+          </div>
+        </div>
+    
+        <br>
+    
+        <div class="row">
+          <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>CPU</h3>
+              <p>Analyzing the graph, we can observe that when selecting the download of a song for almost seven seconds, the application engages in tasks such as buffering, music synchronization, streaming download management, and validating the playback time of the song and whether it has been fully downloaded. Once these tasks are completed, smaller processes commence, lasting between 3 and 4 seconds.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-7" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/esc_1_Cpu.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+    
+        <br>
+    
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn2Video_2" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1b-j-bw2Fo7YQu1YkXmu2Z_h0DzGXqXNa" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    
+          <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>RAM Consumption</h3>
+              <p>When we analyze the RAM consumption while downloading a playlist, we observe that each song is being downloaded and that there is a high percentage of memory size utilization. Furthermore, on average, every 5 seconds there is a peak in memory usage. This can be explained by the fact that, at intervals, the download connection performs so well that the application begins to request a bit more data to store in the mobile device's memory (Local Storage), aiming to download the songs as quickly as possible.</p>
+            </div>
+          </div>
+        </div>
+    
+        <!--TODO: uncomment <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Memory Leaks</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Garbage Collection</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+        </div>-->
+    
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Threading</h3>
+              <p>The following snippets allow the understanding of how threading is used when Downloading a playlist. The downloading of a playlists uses the Download component that inherits the notifiers from ChangeNotifier. Additionally, the next snippet presents the function that is called when a song is downloaded on demand. This function uses async and returns a Future so all the listeners can know when a song has been downloaded. This allows other views to present different icons when songs are already downloaded.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-6" style="align-items: center;">
+            <div class="code-space">
+              <code-viewer title="download.dart">
+                class Download with ChangeNotifier {
+                  static final Map&lt;String, Download&gt; _instances = {};
+                  final String id;
+              </code-viewer>
+              <code-viewer title="download.dart">
+                Future&lt;void&gt; downloadSong(
+                  BuildContext context,
+                  String? dlPath,
+                  String fileName,
+                  Map data,
+                ) async {
+                  Logger.root.info('processing download');
+                  progress = null;
+                  notifyListeners();
+                  String? filepath;
+                  late String filepath2;
+                  String? appPath;
+                  final List&lt;int&gt; bytes = [];
+                  String lyrics = '';
+                  final artname = fileName.replaceAll('.m4a', '.jpg');
+                  if (!Platform.isWindows) {
+                    Logger.root.info('Getting App Path for storing image');
+                    appPath = Hive.box('settings').get('tempDirPath')?.toString();
+                    appPath ??= (await getTemporaryDirectory()).path;
+                  } else {
+                    final Directory? temp = await getDownloadsDirectory();
+                    appPath = temp!.path;
+                  }
+              
+
+              </code-viewer>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+
 
     <section id="overdrawing" class="testimonials">
       <div class="container" data-aos="fade-up">
@@ -554,7 +677,7 @@
           <p>Pull Requests to BlackHole</p>
         </header>
 
-        <p>
+        <p class="text-center">
           We did 2 pull requests in the BlackHole repository, to help the app improving
         </p>
 
