@@ -2552,7 +2552,6 @@ section {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    min-height: 100vh; /* Provide at least the full height of the viewport */
     margin: 0; /* Remove default margin */
   }
 }

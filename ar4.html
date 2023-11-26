@@ -109,7 +109,7 @@
     </section>
 
     <!-- ======= Section: Performance ======= -->
-    <section id="performance" class="testimonials">
+    <section id="scenarios" class="testimonials">
       <div class="container" data-aos="fade-up">
 
         <header class="section-header">
@@ -216,6 +216,35 @@
       </div>
     </section>
   
+    <section id="ecn1" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Scenario 1</h2>
+          <p>Song Playing</p>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn1Video" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1mMCVCNEl4X07m4-mcpX6RxG3z-flwFv9" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+
+          <div class="col-lg-5">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>GPU rendering analysis</h3>
+              <p>The video shows what happens when a song that hasn't been played before is selected. The framerate starts fluctuating too much because the application, while playing the song, is catching the entire song. This is because the system must retrieve and process the audio data in real-time, creating a strain on resources. Consequently, the frame time on the screen increases, indicating a slower rendering of frames, frames now are rendered every 20ms in average. In simpler terms, loading a song directly impacts the smoothness of the overall experience, causing delays in frame updates and affecting the perceived responsiveness of the application or system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>        
+
+
+
   
   </main><!-- End #main -->
 
@@ -259,6 +288,30 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var videos = [];
+        for (var i = 1; i <= 5; i++) {
+            videos.push(document.getElementById('ecn' + i + 'Video'));
+        }
+
+        var checkScroll = function() {
+            videos.forEach(function(video) {
+                if (video) {
+                    var rect = video.getBoundingClientRect();
+                    if (rect.top >= 0) {
+                        video.play();
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('resize', checkScroll);
+
+        checkScroll();
+    });
+  </script>
 
 </body>
 
