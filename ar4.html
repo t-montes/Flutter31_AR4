@@ -123,7 +123,7 @@
             <div class="swiper-slide">
               <a href="#ecn1" class="clickable-div">
                 <div class="testimonial-item">
-                <h3>Song Playing</h3>
+                <h3>Foreground Song Playing</h3>
                 <h4>Scenario 1</h4>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -159,7 +159,7 @@
             <div class="swiper-slide">
               <a href="#ecn3" class="clickable-div">
                 <div class="testimonial-item">
-                <h3>Background Reproduction</h3>
+                <h3>Background Song Playing</h3>
                 <h4>Scenario 3</h4>
                 <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -221,12 +221,12 @@
 
         <header class="section-header">
           <h2>Scenario 1</h2>
-          <p>Song Playing</p>
+          <p>Foreground Song Playing</p>
         </header>
 
         <div class="row">
           <div class="col-lg-7 video-center center-vertically">
-            <video id="ecn1Video" controls muted style="width: 100%;">
+            <video id="ecn1Video_1" controls muted style="width: 100%;">
               <source src="https://drive.google.com/uc?export=download&id=1mMCVCNEl4X07m4-mcpX6RxG3z-flwFv9" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -235,11 +235,85 @@
 
           <div class="col-lg-5">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
-              <h3>GPU rendering analysis</h3>
+              <h3>GPU frame rate</h3>
               <p>The video shows what happens when a song that hasn't been played before is selected. The framerate starts fluctuating too much because the application, while playing the song, is catching the entire song. This is because the system must retrieve and process the audio data in real-time, creating a strain on resources. Consequently, the frame time on the screen increases, indicating a slower rendering of frames, frames now are rendered every 20ms in average. In simpler terms, loading a song directly impacts the smoothness of the overall experience, causing delays in frame updates and affecting the perceived responsiveness of the application or system.</p>
             </div>
           </div>
         </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>CPU usage</h3>
+              <p>Analyzing the graph, we can observe that when selecting the download of a song for almost seven seconds, the application engages in tasks such as buffering, music synchronization, streaming download management, and validating the playback time of the song and whether it has been fully downloaded. Once these tasks are completed, smaller processes commence, lasting between 3 and 4 seconds.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/esc_1_Cpu.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn1Video_2" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1P5_FfcgxZpMFWzUo6_pe0fJUcxuP3B_Z" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>RAM Consumption</h3>
+              <p>The app exhibits minimal memory usage, consistently hovering around 100. This figure remains constant as the songs being played have been pre-downloaded into local storage, ensuring playback availability whenever the user desires, irrespective of internet connectivity.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Memory Leaks</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Garbage Collection</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Threading</h3>
+              <p>This scenario utilizes the audioHandler package from Flutter, this package uses threading to play the music in the background even without connectivity. This thread is in charge of queueing audio events, seeking audio, playing audio and pausing audio. This thread allows all the audio related functions to be working outside of the main thread, this is great for playing on background and using the rest of the functions of the app while playing music. In the case of not having connection, the queuing is made from the stored songs.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" style="align-items: center;">
+            <div class="code-space">
+              <code-viewer title="audioplayer.dart">
+                IconButton(
+                  tooltip: AppLocalizations.of(context)!.play,
+                  onPressed: audioHandler.play,
+                  icon: const Icon(
+                    Icons.play_arrow_rounded,
+                  ),
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              </code-viewer>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>        
 
@@ -292,7 +366,8 @@
     document.addEventListener("DOMContentLoaded", function() {
         var videos = [];
         for (var i = 1; i <= 5; i++) {
-            videos.push(document.getElementById('ecn' + i + 'Video'));
+            videos.push(document.getElementById('ecn' + i + 'Video_1'));
+            videos.push(document.getElementById('ecn' + i + 'Video_2'));
         }
 
         var checkScroll = function() {
