@@ -81,8 +81,10 @@
           <li class="dropdown"><a href="ar4.html"><span>Performance</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="ar4.html#scenarios">Performance Scenarios</a></li>
-              <li><a href="ar4.html#problems_strenghts">Problems and Strengths</a></li>
+              <li><a href="ar4.html#overdrawing">Overdrawing</a></li>
+              <li><a href="ar4.html#memory-leaks-library">Memory Leaks</a></li>
               <li><a href="ar4.html#uoptimization">Micro Optimization</a></li>
+              <li><a href="ar4.html#prs">Pull Requests</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="sonar.html">Sonar</a></li>
@@ -385,6 +387,164 @@
       </div>
     </section>
 
+    <section id="uoptimization" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>uOptimization</h2>
+          <p>Micro-Optimizations</p>
+        </header>
+
+        <p class="text-center">
+          The micro-optimizations evidenced in the project are present in many forms. However, we only brought here some of the examples, because in general the app is well built and all of the possible micro-optimizations that the app could have are already implemented. Due to this, we only make mention of the slight error that we could notice. For noticing this errors we made use of SonarCube and linter, in which some errors were shown, some of them involved possible micro-optimizations and other were just errors overall. 
+        </p>
+
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Indexed loops</h3>
+              <p>
+                <b>Optimization name:</b> Use indexed loops instead of iterator and for-each loops
+                <br><br>
+                <b>Reason:</b> This application uses a indexed for loop instead of iterators, this is better in terms of performance, When using a for-each loop Dart creates an iterator object behind the scenes. This iterator object introduces some memory overhead. In contrast, using indexing directly is more memory-efficient as it avoids the creation of an iterator object.
+                <br><br>
+                <b>Location:</b> This is used inside the app to format the response of an API into a list of Songs, so then another function can format each single song and create objects for each one of the songs.
+                <br><br>
+                <b>Purpose:</b> The purpose of implementing this in this way is that the response of the API brings many songs and for formatting each one of this songs is necessary to use the function mentioned above, the use of the indexing instead of a for each loop allows the app to work quicker and better.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <code-viewer>
+              static Future&lt;List&gt; formatSongsResponse(
+                List responseList,
+                String type,
+              ) async {
+                final List searchedList = [];
+                for (int i = 0; i &lt; responseList.length; i++) {
+                  Map? response;
+                  switch (type) {
+                    case 'song':
+                    case 'album':
+                    case 'playlist':
+                    case 'show':
+                    case 'mix':
+                      response = await formatSingleSongResponse(responseList[i] as Map);
+                      break;
+                    default:
+                      break;
+                  }
+              
+                  if (response != null && response.containsKey('Error')) {
+                    Logger.root.severe(
+                      'Error at index $i inside FormatSongsResponse: ${response["Error"]}',
+                    );
+                  } else {
+                    if (response != null) {
+                      searchedList.add(response);
+                    }
+                  }
+                }
+                return searchedList;
+              }
+            </code-viewer>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Primitive Types</h3>
+              <p>
+                <b>Optimization name:</b> Prefer primitive types over wrappers, i.e., int vs. Integer
+                <br><br>
+                <b>Reason:</b> Using primitive types is fundamental, as it helps to improve efficiency both in performance and in memory management. This is because wrappers are objects that contain more space and also the operations needed for using one of this wrapper are more demanding.
+                <br><br>
+                <b>Location:</b> This snippet of code shown is used in getting all the songs from a playlist and we can evidence how both the index I and the total number of tracks is using int as the type instead of a wrapper of Integer, this makes operations better and quicker.  
+                <br><br>
+                <b>Purpose:</b> The purpose of implementing this in this way is that the list of all tracks inside a playlist is a iterative process. Using a primitive type inside this process is smart as it uses the best out of the resources of the phone. Reducing memory and CPU usage. 
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <code-viewer>
+              Future&lt;List&gt; getAllTracksOfPlaylist(
+                String accessToken,
+                String playlistId,
+              ) async {
+                final List tracks = [];
+                int totalTracks = 100;
+            
+                final Map data = await SpotifyApi().getHundredTracksOfPlaylist(
+                  accessToken,
+                  playlistId,
+                  0,
+                );
+                totalTracks = data['total'] as int;
+                tracks.addAll(data['tracks'] as List);
+            
+                if (totalTracks > 100) {
+                  for (int i = 1; i * 100 &lt;= totalTracks; i++) {
+                    final Map data = await SpotifyApi().getHundredTracksOfPlaylist(
+                      accessToken,
+                      playlistId,
+                      i * 100,
+                    );
+                    tracks.addAll(data['tracks'] as List);
+                  }
+                }
+                return tracks;
+              }
+            </code-viewer>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns red-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Components LifeCycle</h3>
+              <p>
+                <b>Optimization name:</b> Components LifeCycle
+                <br><br>
+                <b>Reason:</b> This happens when using the BuildContext object in an asynchronous operation, and the build context might be disposed of before the operation completes. This can lead to potential memory leaks or unexpected behavior.
+                <br><br>
+                <b>Location:</b> This snippet of code shown is used to present the downloaded songs. However, this can lead to memory leaks because of accessing the context variable before completion.
+                <br><br>
+                <b>Solution:</b>  To solve this error, there are many possible ways to address this, one possible solution is to capture the context variable before starting the asynchronous operation, other solution can be using a Completer, this component waits for the operation to finish before using the context.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <code-viewer>
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    title: Text(
+                      AppLocalizations.of(context)!.alreadyExists,
+                      style:
+                          TextStyle(color: Theme.of(context).colorScheme.secondary),
+                    ),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ...
+            </code-viewer>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
 
   
   </main><!-- End #main -->
