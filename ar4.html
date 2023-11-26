@@ -453,7 +453,7 @@
           <div class="col-lg-7 video-center center-vertically">
             <video id="ecn3Video_1" loop controls muted style="width: 100%;">
               <!-- TODO: change URL of performance -->
-              <source src="https://drive.google.com/uc?export=download&id=18cdrsPm2YShdw8ieUumRlQJOsKNUCeI8" type="video/mp4">
+              <source src="https://drive.google.com/uc?export=download&id=1hX2ud2INgwfKxX7et7ecgNfslMxJtO-z" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -494,7 +494,7 @@
           <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>On this scenario the RAM use in consistient and depends on the app that I am currently using (the app that is a visible process). On this case the app is Chrome, so there are not many calls so this is the case with more frames per second provided by the cellphone.</p>
+              <p>On this scenario the RAM use in consistent and depends on the app that I am currently using (the app that is a visible process). On this case the app is Chrome, so the RAM usage depends on what I am doing on Chrome. This is the reason why in the video we cannot see the frames per second used while chrome is the visible process.</p>
             </div>
           </div>
         </div>
@@ -503,7 +503,7 @@
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Memory Leaks</h3>
-              <p>As shown in the video, there are any memory leaks. This is easy to verify because the cellphone is reporting a consistent 10 Megas in the Memory Size Scale. This means that in the case when the music is reproducing on a background process, the mobile device does not have memory leaks while getting the song data to be reproduced.</p>
+              <p>As shown in the video, there are no memory leaks. This is easy to verify because the cellphone is reporting a consistent 10 Megas in the Memory Size Scale. This means that in the case when the music is reproducing on a background process, the mobile device does not have memory leaks while getting the song data to be reproduced.</p>
             </div>
           </div>
     
@@ -595,26 +595,26 @@
           <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>The app exhibits minimal memory usage, consistently hovering around 100. This figure remains constant as the songs being played have been pre-downloaded into local storage, ensuring playback availability whenever the user desires, irrespective of internet connectivity.</p>
+              <p>When the user clicks to reproduce a downloaded song, there is a perceptible delay in rendering the UI frames for the selected song. However, once the music starts playing from local storage, the application achieves a consistent frame rate, delivering both smooth and prompt rendering of frames on the screen.  </p>
             </div>
           </div>
         </div>
     
-        <!--TODO: uncomment <div class="row">
+        <div class="row">
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Memory Leaks</h3>
-              <p>TODO</p>
+              <p>As evidenced in the video, there are no peaks in memory consumption, signifying the absence of any memory leaks in this scenario. This is attributable to the fact that the music that is currently playing has been already downloaded to local storage. Consequently, the application just requires reproducing the song media file, which eliminates the necessity to utilize the device's memory.</p>
             </div>
           </div>
     
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Garbage Collection</h3>
-              <p>TODO</p>
+              <p>The application operates without the need for the Garbage Collector, given that the music has been pre-downloaded, and the system solely undertakes the task of playing the audio file. This situation is particularly favorable as the system has a lot of available memory, eliminating any necessity to invoke the Garbage Collector.</p>
             </div>
           </div>
-        </div>-->
+        </div>
     
         <div class="row">
           <div class="col-lg-6 center-vertically center-horizontally">
@@ -696,26 +696,26 @@
           <div class="col-lg-5 center-vertically">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>RAM Consumption</h3>
-              <p>When examining the memory consumption in the profile, we observe that it is relatively high. This is attributed to the fact that the song is being fetched from the YouTube API and is being cached while being played. In this instance, we note that the download from the YouTube API was restricted to a maximum, preventing the memory spikes experienced in scenario 1. In that scenario, the application downloaded music from its own database and stored it in local storage.</p>
+              <p>The application's RAM utilization initiates upon selecting a search result for a song using keywords. As demonstrated in the video, the app experiences a prolonged delay in loading data following the initial click. During this period, the frame rendering process slows down significantly, resulting in suboptimal performance as the app awaits the reception of data to begin caching the song.</p>
             </div>
           </div>
         </div>
     
-        <!--TODO: uncomment <div class="row">
+        <div class="row">
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Memory Leaks</h3>
-              <p>TODO</p>
+              <p>As presented in the snapshot, the application exhibits that there are no memory leaks. The memory usage graph reveals a steady and consistent pattern, devoid of any discernible peaks. This pattern suggests that the app efficiently manages the retrieval and storage of cache data from the YouTube Api, which probably has a limit in the memory consumption imposed by YouTube to prevent memory leaks.</p>
             </div>
           </div>
     
           <div class="col-lg-6 center-vertically center-horizontally">
             <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
               <h3>Garbage Collection</h3>
-              <p>TODO</p>
+              <p>The application experiences frequent invocations of the Garbage Collector (GC), evident in the graph through the consistent appearance of a blue dot above the orange dotted line. The persistent presence of this blue dot throughout the timeline suggests an excessive caching of song data, necessitating frequent clean-up operations by the GC to remove the unused data.</p>
             </div>
           </div>
-        </div>-->
+        </div>
     
         <div class="row">
           <div class="col-lg-6 center-vertically center-horizontally">
