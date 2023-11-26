@@ -578,7 +578,7 @@
           </div>
     
           <div class="col-lg-7" data-aos="zoom-out" data-aos-delay="100">
-            <img src="assets/img/esc_3_Cpu.png" class="img-fluid custom-image" alt="">
+            <img src="assets/img/esc_4_Cpu.png" class="img-fluid custom-image" alt="">
           </div>
         </div>
     
@@ -644,6 +644,102 @@
       </div>
     </section>
 
+    <section id="ecn5" class="testimonials">
+      <div class="container" data-aos="fade-up">
+    
+        <header class="section-header">
+          <h2>Scenario 5</h2>
+          <p>Song Search</p>
+        </header>
+    
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn5Video_1" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1c0KLjHFjnYINAEV7VFM-DP0zWA514rYp" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    
+          <div class="col-lg-5">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Frame rate</h3>
+              <p>When the keywords are entered into the search bar and the search is initiated, the frames per second begin to fluctuate significantly. Additionally, the request made to YouTube causes a delay in the display of many frames, resulting in what is commonly referred as "Jank."</p>
+            </div>
+          </div>
+        </div>
+    
+        <br>
+    
+        <div class="row">
+          <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>CPU</h3>
+              <p>In the CPU usage analysis, we notice numerous small calls, possibly arising from the various functions interacting with the YouTube API. However, the task that took up the most time was retrieving and rendering the image of the selected song, lasting almost 4 seconds. This significant duration meant the CPU couldn't execute other processes, like fetching additional artists matching the keywords entered in the search.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-7" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/esc_5_Cpu.png" class="img-fluid custom-image" alt="">
+          </div>
+        </div>
+    
+        <br>
+    
+        <div class="row">
+          <div class="col-lg-7 video-center center-vertically">
+            <video id="ecn5Video_2" controls muted style="width: 100%;">
+              <source src="https://drive.google.com/uc?export=download&id=1ZcqsBqoV1hUZc4VGcmrRaOsLV2D29l82" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    
+          <!--TODO: uncomment <div class="col-lg-5 center-vertically">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>RAM Consumption</h3>
+              <p>When we analyze the RAM consumption while downloading a playlist, we observe that each song is being downloaded and that there is a high percentage of memory size utilization. Furthermore, on average, every 5 seconds there is a peak in memory usage. This can be explained by the fact that, at intervals, the download connection performs so well that the application begins to request a bit more data to store in the mobile device's memory (Local Storage), aiming to download the songs as quickly as possible.</p>
+            </div>
+          </div>-->
+        </div>
+    
+        <!--TODO: uncomment <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Memory Leaks</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Garbage Collection</h3>
+              <p>TODO</p>
+            </div>
+          </div>
+        </div>-->
+    
+        <div class="row">
+          <div class="col-lg-6 center-vertically center-horizontally">
+            <div class="box-ecns green-highlight" data-aos="fade-left" data-aos-delay="100">
+              <h3>Threading</h3>
+              <p>In this scenario, when the user does any search, the engine that allows the information retrieval is a SearchDelegate. As evidenced in the next section, the DataSearch component extends from SearchDelegate. This component uses threads in its advantage to offload tasks that might block the main thread. For example, fetching suggestions or performing search operations in a background.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-6 center-vertically" style="align-items: center;">
+            <div class="code-space">
+              <code-viewer title="audioplayer.dart">
+                class DataSearch extends SearchDelegate {
+                  final List&lt;SongModel&gt; data;
+                  final String tempPath;
+                
+              </code-viewer>
+            </div>
+          </div>
+
+        </div>
+    
+      </div>
+    </section>
 
 
     <section id="overdrawing" class="testimonials">
